@@ -14,6 +14,7 @@ function keyPressed(){
 }
 
 function showInstructions() {
+  textGraphic.fill(255);
   if (instructions) {
     if (instructionsFirstTime){
       noLoop();
