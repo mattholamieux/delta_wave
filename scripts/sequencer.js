@@ -20,7 +20,6 @@ class Sequencer {
     this.vel = 0.2;
     this.filterCounter = 0;
     this.oscCounter = oscillator;
-    // console.log(this.synth.oscillator.type);
     this.kord = false;
     this.noteCounter = 0;
     this.chordCounter = 0;
@@ -80,11 +79,9 @@ class Sequencer {
             let chordsLength = map(this.slider0.m, 0, notes.length, 0, chords.length);
             this.rings[this.selectedRing].note = Math.floor(chordsLength);
             this.rings[this.selectedRing].tick.note = Math.floor(chordsLength);
-            console.log(chords[this.rings[this.selectedRing].note]);
           } else {
             this.rings[this.selectedRing].note = Math.floor(this.slider0.m);
             this.rings[this.selectedRing].tick.note = Math.floor(this.slider0.m);
-            console.log(notes[this.rings[this.selectedRing].note]);
           }
         }
       }

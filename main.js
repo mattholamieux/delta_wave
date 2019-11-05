@@ -2,6 +2,7 @@ let beet, ctx, loopOne, loopTwo, loopThree, reverb, chorus, delay, compressor, m
 let scl = 15;
 let counter = 0;
 let notes = [];
+let activeTicks = [];
 let chords = [];
 let scales = ['C', 'G', 'D', 'A', 'E', 'B', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'];
 let modes = ['major', 'minor'];
@@ -158,6 +159,7 @@ function draw() {
   push2val = 0;
   push3val = 0;
   r2isOn = false;
+  activeTicks.length = 0;
 }
 
 function changeSequencer() {

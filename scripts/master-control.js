@@ -46,7 +46,6 @@ class Master {
         delay.feedback.value = this.masterFXSliders[3].m;
         reverb.roomSize.value = this.masterFXSliders[4].m;
         reverb.dampening.value = this.masterFXSliders[5].m;
-        console.log(delay.delayTime.value);
 
       } else {
         for (let i = 0; i < sequencers.length; i++) {
