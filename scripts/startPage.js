@@ -1,6 +1,7 @@
 
 function showStartPage() {
   if (startPage) {
+    
     push();
     titleText.text('DELTA WAVES', 250, 50);
     titleText.background(0, 0, 0, 0);
