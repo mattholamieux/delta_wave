@@ -112,6 +112,7 @@ function showText() {
 
     }
     push();
+    textGraphic.fill(255);
     textGraphic.text(message, 125, 50);
     translate(0, 0, 200);
     texture(textGraphic);
@@ -157,6 +158,7 @@ function showText() {
     push();
     rotateX(xRot);
     if (xRot > 1.3) {
+      textGraphic.fill(255);
       textGraphic.text(message, 125, 50);
       translate(230, 0, 260);
       texture(textGraphic);

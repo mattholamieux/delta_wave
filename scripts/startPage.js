@@ -34,6 +34,7 @@ function showStartPage() {
       sequencers[0].rings.length = 0;
       sequencers[0].selectedRing = 0;
       sequencers[0].noteCounter = 0;
+      textGraphic.text('', 0,0);
       setTimeout(function() {
         startPage = !startPage;
         instructions = true;
