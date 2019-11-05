@@ -100,6 +100,7 @@ function setup() {
   sequencers[0].rings[1].tempo = 2;
   sequencers[0].rings[0].tick.vel = 0;
   sequencers[0].rings[1].tick.vel = 0;
+  Tone.context.resume();
 }
 
 function draw() {
