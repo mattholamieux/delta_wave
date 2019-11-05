@@ -63,7 +63,7 @@ function showInstructions() {
       instructionText.text('Shift+K: remove trigger', 250, 225);
       instructionText.text('L: select ring', 250, 250);
       instructionText.text('Shift+L: view synth params', 250, 275);
-      instructionText.text('a d: change sequencer', 250, 300);
+      instructionText.text('a d: change sequencers', 250, 300);
       instructionText.text('w s: add/remove steps', 250, 325);
       instructionText.text('2x shift: FX controls', 250, 350);
       // instructionText.text('press Enter on any page to view instructions', 250, 500);
