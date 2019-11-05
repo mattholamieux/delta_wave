@@ -21,7 +21,6 @@ let currentZoom = 0;
 let angle = 0;
 let xRot = 0;
 let xRotTarget = 0;
-const socket = io.connect(window.location.origin);
 let r1val = 1;
 let r2val = 1;
 let r2isOn = false;
