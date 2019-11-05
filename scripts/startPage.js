@@ -20,6 +20,7 @@ function showStartPage() {
     plane(250, 100);
     translate(0, 90, 0);
     textGraphic.textSize(18);
+    textGraphic.fill(250, 255, 255, 2);
     textGraphic.text('press enter to begin', 125, 50);
     textGraphic.background(0, 0, 0, 0);
     texture(textGraphic);
