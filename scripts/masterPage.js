@@ -5,14 +5,14 @@ push();
     // if (firstPress){
       if (!masterPage) {
         master.selector.y = -250;
-        selectedSequencer = 0; 
+        selectedSequencer = 0;
         for (s of sequencers) {
           s.isSelected = false;
         }
         sequencers[selectedSequencer].isSelected = true;
         zoomTarget = 0;
       }
-      if (!synthPage && !masterPage2 && !startPage) {
+      if (!synthPage && !masterPage2 && !startPage && !instructions) {
         masterPage = !masterPage;
       }
     // }
@@ -29,6 +29,12 @@ push();
     if (keyWentDown(74)) {
       masterPage2 = !masterPage2;
       master.selector.y = -250;
+      selectedSequencer = 0;
+      for (s of sequencers) {
+        s.isSelected = false;
+      }
+      sequencers[selectedSequencer].isSelected = true;
+      zoomTarget = 0;
     }
     if (masterPage2) {
       push();
