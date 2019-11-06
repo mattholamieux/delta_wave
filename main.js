@@ -61,7 +61,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
-  introSong.setVolume(0.2);
+  introSong.setVolume(0.1);
   introSong.play(1.5);
   initText();
   perspective();
