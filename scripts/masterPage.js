@@ -1,26 +1,27 @@
 
 function toggleMasterPage() {
 push();
-  if (keyWentDown(16)){
-    if (firstPress){
+  if (keyWentDown(32)){
+    // if (firstPress){
       if (!masterPage) {
         master.selector.y = -250;
-        selectedSequencer = 0; //select sequencer using slider
+        selectedSequencer = 0; 
         for (s of sequencers) {
-          s.isSelected = false; //unselect all sequences
+          s.isSelected = false;
         }
         sequencers[selectedSequencer].isSelected = true;
-        zoomTarget = 0; //set zoom target to selected sequencer
+        zoomTarget = 0;
       }
       if (!synthPage && !masterPage2 && !startPage) {
         masterPage = !masterPage;
       }
-    } else {
-      firstPress = true;
-      setTimeout(function() {
-        firstPress = false;
-      }, 500);
-    }
+    // }
+    // else {
+    //   firstPress = true;
+    //   setTimeout(function() {
+    //     firstPress = false;
+    //   }, 500);
+    // }
   }
 
 

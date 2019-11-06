@@ -49,7 +49,7 @@ function showInstructions() {
       } else {
         push();
         instructionText.text('J: master controls', 250, 300);
-        instructionText.text('2x shift: return to sequencer', 250, 325);
+        instructionText.text('spacebar: return to sequencer', 250, 325);
         translate(0,80,200);
         texture(instructionText);
         plane(1000, 800);
@@ -65,7 +65,7 @@ function showInstructions() {
       instructionText.text('Shift+L: view synth params', 250, 275);
       instructionText.text('a d: change sequencers', 250, 300);
       instructionText.text('w s: add/remove steps', 250, 325);
-      instructionText.text('2x shift: FX controls', 250, 350);
+      instructionText.text('spacebar: FX controls', 250, 350);
       // instructionText.text('press Enter on any page to view instructions', 250, 500);
       translate(0,80,200);
       texture(instructionText);
