@@ -49,16 +49,20 @@ let randomZs = [];
 let message = "";
 let firstPress = false;
 let instructionsFirstTime = true;
+let introSong;
 
 function preload() {
   myFont = loadFont('assets/SFAlienEncountersSolid.ttf');
   titleFont = loadFont('assets/SFAlienEncounters.ttf');
   titleFontItalic = loadFont('assets/SFAlienEncounters-Italic.ttf');
   myFontItalic = loadFont('assets/SFAlienEncountersSolid-Ital.ttf');
+  introSong = loadSound('assets/dwdemo2.mp3');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
+  introSong.setVolume(0.2);
+  introSong.play(1.5);
   initText();
   perspective();
   centerX = windowWidth / 2;
@@ -127,6 +131,7 @@ function draw() {
   toggleInstructions();
   if (startPage) {
     if (keyWentDown(13)) {
+      introSong.stop();
       Tone.context.resume();
     }
     translate(0, 0, -2000);

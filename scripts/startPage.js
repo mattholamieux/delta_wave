@@ -1,13 +1,13 @@
 
 function showStartPage() {
   if (startPage) {
-    
+
     push();
     titleText.text('DELTA WAVES', 250, 50);
     titleText.background(0, 0, 0, 0);
     titleText2.text('DELTA WAVES', 250, 50);
     titleText2.background(0, 0, 0, 0);
-    titleText3.text('polyrythmic synthesizer', 250, 75);
+    titleText3.text('polyrhythmic synthesizer', 250, 75);
     titleText3.background(0, 0, 0, 0);
     translate(titleX, -30, 2400);
     titleText.fill(50, 255, 155, 1);
