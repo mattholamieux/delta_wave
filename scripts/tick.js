@@ -1,5 +1,5 @@
 class Tick {
-  constructor(x, y, w, h, note, synth, dur, vel, synthOpts, kord) {
+  constructor(x, y, w, h, note, synth, dur, vel, synthOpts, kord, probability) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -15,6 +15,8 @@ class Tick {
     this.param2 = 0.01;
     this.synthOpts = synthOpts;
     this.trigger = true;
+    this.randomNum = 0;
+    this.probability = probability;
   }
 
   show(spaceBetween) {
@@ -34,29 +36,39 @@ class Tick {
 
 
   move(other, time) {
+
     let maxX = other.pattern.length;
     this.angle += 2 * PI / other.pattern.length;
     if (other.pattern[this.newX] == 1) {
-      for (let i=0; i<activeTicks.length;i++){
-        if (this.note === activeTicks[i]){
-          this.trigger = false;
+      //
+      if (this.kord === true){
+        for (let i = 0; i < activeTicks.length; i++) {
+          for (let j=0; j<chords[this.note].length;j++){
+            if (chords[this.note][j] == activeTicks[i]) {
+              this.trigger = false;
+            }
+            activeTicks.push(chords[this.note][j]);
+          }
+        }
+      } else {
+        for (let i = 0; i < activeTicks.length; i++) {
+          if (notes[this.note] === activeTicks[i]) {
+            this.trigger = false;
+          }
+        }
+        activeTicks.push(notes[this.note]);
+      }
+        if (this.trigger) {
+          if (this.randomNum < this.probability) {
+          this.synth.set(this.synthOpts);
+          if (this.kord === true) {
+            this.synth.triggerAttackRelease(chords[this.note], this.dur, time, this.vel);
+          } else {
+            this.synth.triggerAttackRelease(notes[this.note], this.dur, time, this.vel);
+          }
         }
       }
-      activeTicks.push(this.note);
-      if (this.trigger){
-        this.synth.set(this.synthOpts);
-        if(this.kord === true){
-          this.synth.triggerAttackRelease(chords[this.note], this.dur, time, this.vel);
-        } else {
-        this.synth.triggerAttackRelease(notes[this.note], this.dur, time, this.vel);
-        }
-      }
-      // this.synth.set(this.synthOpts);
-      // if(this.kord === true){
-      //   this.synth.triggerAttackRelease(chords[this.note], this.dur, time, this.vel);
-      // } else {
-      // this.synth.triggerAttackRelease(notes[this.note], this.dur, time, this.vel);
-      // }
+      this.randomNum = Math.floor(random(0, 10));
     }
     this.newX += 1;
     if (this.newX >= maxX) {

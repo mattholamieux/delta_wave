@@ -17,10 +17,11 @@ class Ring {
     this.tempo = 1;
     this.dur = dur;
     this.vel = vel;
-    this.tick = new Tick(this.x, this.y, scl, scl, note, this.synth, this.dur, this.vel, this.synthOpts, kord);
+    this.probability = 10;
+    this.tick = new Tick(this.x, this.y, scl, scl, note, this.synth, this.dur, this.vel, this.synthOpts, kord, this.probability);
   }
 
-  passSliderVals(opts){
+  passSliderVals(opts) {
     this.synthOpts = opts;
   }
 
@@ -29,8 +30,39 @@ class Ring {
     this.createTrigs();
   }
 
-  newTick(){
-    this.tick = new Tick(this.x, this.y, this.w, this.h, this.note, this.synth, this.dur, this.vel, this.synthOpts, this.kord);
+  newTick() {
+    this.tick = new Tick(this.x, this.y, this.w, this.h, this.note, this.synth, this.dur, this.vel, this.synthOpts, this.kord, this.probability);
+  }
+
+  shiftPattern(){
+      // if (keyWentDown(186)){
+      //   let newPattern = this.pattern;
+      //   let removedItem = this.pattern.shift();
+      //   newPattern.push(removedItem);
+      //   this.pattern = newPattern;
+      //   this.createTrigs();
+      // }
+      // console.log(this.pattern);
+  }
+
+  changeProbability() {
+    probability = this.probability*10;
+    if (keyWentDown(186)) {
+      if (this.isSelected && synthPage) {
+        if (keyIsDown(16)){
+          if (this.tick.probability > 0) {
+            this.probability--;
+            this.tick.probability--;
+          }
+        } else {
+          if (this.tick.probability < 10) {
+            this.probability++;
+          this.tick.probability++;
+        }
+      }
+        console.log(this.tick.probability, this.probability);
+      }
+    }
   }
 
   createTrigs() {

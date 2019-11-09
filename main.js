@@ -1,4 +1,4 @@
-let beet, ctx, loopOne, loopTwo, loopThree, reverb, chorus, delay, compressor, master, centerX, centerY, myFont, textGraphic, titleText, titleText2, titleX;
+let beet, ctx, loopOne, loopTwo, loopThree, reverb, chorus, delay, compressor, master, centerX, centerY, myFont, textGraphic, textGraphic2, titleText, titleText2, titleX, probability;
 let scl = 15;
 let counter = 0;
 let notes = [];
@@ -6,7 +6,7 @@ let activeTicks = [];
 let chords = [];
 let scales = ['C', 'G', 'D', 'A', 'E', 'B', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'];
 let modes = ['major', 'minor'];
-let filters = ['lowpass', 'highpass', 'allpass'];
+let filters = ['lowpass', 'highpass', 'bandpass', 'allpass'];
 let oscillators = ['sine', 'triangle', 'sawtooth', 'square'];
 let delayTimes = ['48n', '40n', '32n', '24n', '16n', '12n', '8n', '4n', '2n'];
 let synths = [];

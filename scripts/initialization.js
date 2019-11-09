@@ -103,6 +103,13 @@ function initText(){
   textGraphic.textFont(myFont);
   textGraphic.textAlign(CENTER);
   textGraphic.textSize(24);
+
+  textGraphic2 = createGraphics(250, 100);
+  textGraphic2.fill(255);
+  textGraphic2.textFont(titleFont);
+  textGraphic2.textAlign(LEFT);
+  textGraphic2.textSize(18);
+
   titleText = createGraphics(500, 200);
   titleText.fill(50, 255, 155, 1);
   titleText.textFont(titleFont);

@@ -165,6 +165,17 @@ function showText() {
       rotateX(-xRot);
       plane(250, 100);
       textGraphic.background(0);
+
+      textGraphic2.text(oscillators[sequencers[selectedSequencer].oscCounter], 20, 50);
+      textGraphic2.text(filters[sequencers[selectedSequencer].filterCounter], 20, 75);
+      textGraphic2.text(sequencers[selectedSequencer].rings[sequencers[selectedSequencer].selectedRing].probability*10, 20, 100);
+      if (sequencers[selectedSequencer].rings[sequencers[selectedSequencer].selectedRing].tick.kord){
+            textGraphic2.text('chord', 20, 125);
+      }
+      translate(-400,0,0);
+      texture(textGraphic2);
+      plane(250, 100);
+      textGraphic2.background(0);
     }
     pop();
   }

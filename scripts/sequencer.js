@@ -34,6 +34,7 @@ class Sequencer {
     this.slider5 = new Slider(-150, -150, 150, 0, -150, 0.5, 10); // filter resonance
     this.slider7 = new Slider(-147, -150, 150, 0, -200, 0.001, 0.5); //filter attack
     this.slider8 = new Slider(-90, -150, 150, 0, -250, 0.02, 0.5); // filter release
+    this.slider10 = new Slider(-90, -150, 150, 0, -300, 0.02, 0.5); //
     this.sliders.push(this.slider0, this.slider9, this.slider1, this.slider2, this.slider3, this.slider4, this.slider6, this.slider5, this.slider7, this.slider8);
     this.selector = new sliderSelector(-150, 0, 250);
   }
@@ -123,7 +124,9 @@ class Sequencer {
       if (this.isSelected && !synthPage) {
         for (let r of this.rings) {
           r.isSelected = false;
+          // if (keyWentDown(87) || keyWentDown(83) || keyWentDown(75)){
           this.rings[this.selectedRing].changePatternVals();
+          // }
           this.rings[this.selectedRing].isSelected = true;
         }
       }
@@ -132,20 +135,19 @@ class Sequencer {
 
 
   doPatternStuff() {
-    // translate(0, -20, 0);
     if (sequencers.indexOf(this) !== 0) {
       translate(this.translate, 0, 0);
     }
     push();
-    // translate(0, 0, this.translate);
     if (!synthPage) {
       rotateY(angle);
     }
-    // translate(0, zoomOut, 0);
     for (let r of this.rings) {
       r.showPattern();
       r.showTrigs();
       r.showTick();
+      r.changeProbability();
+      // r.shiftPattern();
     }
     pop();
     // sliders
