@@ -40,24 +40,12 @@ class Tick {
     let maxX = other.pattern.length;
     this.angle += 2 * PI / other.pattern.length;
     if (other.pattern[this.newX] == 1) {
-      //
-      if (this.kord === true){
-        for (let i = 0; i < activeTicks.length; i++) {
-          for (let j=0; j<chords[this.note].length;j++){
-            if (chords[this.note][j] == activeTicks[i]) {
-              this.trigger = false;
-            }
-            activeTicks.push(chords[this.note][j]);
-          }
-        }
-      } else {
         for (let i = 0; i < activeTicks.length; i++) {
           if (notes[this.note] === activeTicks[i]) {
             this.trigger = false;
           }
         }
         activeTicks.push(notes[this.note]);
-      }
         if (this.trigger) {
           if (this.randomNum < this.probability) {
           this.synth.set(this.synthOpts);
