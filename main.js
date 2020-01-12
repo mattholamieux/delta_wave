@@ -60,7 +60,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
+  createCanvas(1000, 700, WEBGL);
   introSong.setVolume(0.1);
   introSong.play(1.5);
   initText();
