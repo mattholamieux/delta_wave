@@ -97,7 +97,7 @@ function initSeqs() {
   }
 }
 
-function initText(){
+function initText() {
   textGraphic = createGraphics(250, 100);
   textGraphic.fill(255);
   textGraphic.textFont(myFont);
@@ -109,6 +109,26 @@ function initText(){
   textGraphic2.textFont(titleFont);
   textGraphic2.textAlign(LEFT);
   textGraphic2.textSize(18);
+
+  textGraphic3 = createGraphics(300, 400);
+  textGraphic3.textFont(titleFont);
+  textGraphic3.textAlign(LEFT);
+  textGraphic3.textSize(14);
+  textGraphic3.fill(255);
+  textGraphic3.text('j: add ring', 15, 15);
+  textGraphic3.text('w: add steps', 15, 35);
+  textGraphic3.text('s: remove steps', 15, 55);
+  textGraphic3.text('d: add notes', 15, 75);
+  textGraphic3.text('a: remove notes', 15, 95);
+  textGraphic3.text('o: pitch up', 15, 115);
+  textGraphic3.text('u: pitch down', 15, 135);
+  textGraphic3.text('k: change speed', 15, 155);
+  textGraphic3.text('i: randomize synth', 15, 175);
+  textGraphic3.text('l: select ring', 15, 195);
+  textGraphic3.text('q: next sequencer', 15, 215);
+  textGraphic3.text('e: previous sequencer', 15, 235);
+  textGraphic3.text('enter: synth params', 15, 255);
+  textGraphic3.text('space: FX', 15, 275);
 
   titleText = createGraphics(500, 200);
   titleText.fill(50, 255, 155, 1);

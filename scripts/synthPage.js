@@ -1,7 +1,6 @@
 
 function toggleSynthParams() {
-  if (keyWentDown(76) && keyIsDown(16)) {
-
+  if (keyWentDown(13)) {
     if (!startPage && !instructions) {
       if (sequencers[selectedSequencer].rings.length > 0 && !masterPage) {
         synthPage = !synthPage;

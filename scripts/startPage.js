@@ -38,7 +38,7 @@ function showStartPage() {
       textGraphic.text('', 0,0);
       setTimeout(function() {
         startPage = !startPage;
-        instructions = true;
+        // instructions = true;
       }, 500);
     }
   }

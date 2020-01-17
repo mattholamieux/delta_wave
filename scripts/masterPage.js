@@ -15,18 +15,11 @@ push();
       if (!synthPage && !masterPage2 && !startPage && !instructions) {
         masterPage = !masterPage;
       }
-    // }
-    // else {
-    //   firstPress = true;
-    //   setTimeout(function() {
-    //     firstPress = false;
-    //   }, 500);
-    // }
   }
 
 
   if (masterPage) {
-    if (keyWentDown(74)) {
+    if (keyWentDown(13)) {
       masterPage2 = !masterPage2;
       master.selector.y = -250;
       selectedSequencer = 0;

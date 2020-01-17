@@ -39,6 +39,35 @@ class Sequencer {
     this.selector = new sliderSelector(-150, 0, 250);
   }
 
+  synthRandomize() {
+    if (keyWentDown(73)) {
+      console.log('randomize!');
+      let aatk = attackTimes[Math.floor(random(0, 8.9))];
+      let sust = sustainTimes[Math.floor(random(0, 8.9))];
+      let rels = random(0.01, 1);
+      // console.log(aatk, sust, rels);
+      for (let r of this.rings) {
+        if (this.rings.length > 0) {
+          r.tick.synth.set({
+            "envelope": {
+              "attack": aatk,
+              "release": rels
+            },
+            "filter": {
+              "Q": random(0.5, 10)
+            },
+            "filterEnvelope": {
+              "baseFrequency": random(20, 1500),
+              "octaves": random(0.5, 8)
+            }
+          });
+          r.dur = sust;
+          r.tick.dur = sust;
+        }
+      }
+    }
+  }
+
   assignSliders() {
     if (this.isSelected && this.rings.length > 0) {
       this.synthOpts = {

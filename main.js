@@ -9,6 +9,8 @@ let modes = ['major', 'minor'];
 let filters = ['lowpass', 'highpass', 'bandpass', 'allpass'];
 let oscillators = ['sine', 'triangle', 'sawtooth', 'square'];
 let delayTimes = ['48n', '40n', '32n', '24n', '16n', '12n', '8n', '4n', '2n'];
+let sustainTimes = [0.01, 0.02, 0.4, 0.1, 0.2, 0.01, 0.03, 0.07, 0.05, 0.01];
+let attackTimes = [0.001, 0.002, 0.005, 0.2, 0.001, 0.3, 0.1, 0.001, 0.1];
 let synths = [];
 let chorSends = [];
 let delaySends = [];
@@ -48,7 +50,7 @@ let randomYs = [];
 let randomZs = [];
 let message = "";
 let firstPress = false;
-let instructionsFirstTime = true;
+// let instructionsFirstTime = true;
 let introSong;
 
 function preload() {
@@ -60,7 +62,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1000, 700, WEBGL);
+  createCanvas(1000, 650, WEBGL);
   introSong.setVolume(0.1);
   introSong.play(1.5);
   initText();
@@ -128,7 +130,7 @@ function draw() {
   changeSequencer();
   toggleSynthParams();
   toggleMasterPage();
-  toggleInstructions();
+  // toggleInstructions();
   if (startPage) {
     if (keyWentDown(13)) {
       introSong.stop();
@@ -153,9 +155,10 @@ function draw() {
       s.doPatternStuff();
       s.assignSliders();
     }
+    sequencers[selectedSequencer].synthRandomize();
   }
   pop();
-  showInstructions();
+  // showInstructions();
   master.changeKey();
   master.changeTempo();
   showStartPage();

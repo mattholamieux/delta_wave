@@ -1,79 +1,80 @@
+//
+// function toggleInstructions() {
+//   if (keyWentDown(13)) {
+//     if (!startPage) {
+//       instructions = !instructions;
+//       instructionsFirstTime = false;
+//     }
+//   }
+// }
 
-function toggleInstructions() {
-  if (keyWentDown(13)) {
-    if (!startPage) {
-      instructions = !instructions;
-      instructionsFirstTime = false;
-    }
-  }
-}
-function keyPressed(){
-  if (instructionsFirstTime){
-    loop();
-  }
-}
-
-function showInstructions() {
-  textGraphic.fill(255);
-  if (instructions) {
-    if (instructionsFirstTime){
-      noLoop();
-    instructionText.background(0,0,0,0);
-    instructionText.text('press Enter on any page to view instructions', 250, 500);
-  } else {
-    instructionText.background(0);
-  }
-      instructionText.fill(255);
-    if (synthPage){
-      push();
-      instructionText.text('wasd: change sliders', 250, 200);
-      instructionText.text('j: change oscillator', 250, 225);
-      instructionText.text('K: change filter', 250, 250);
-      instructionText.text('l: toggle chord mode', 250, 275);
-      instructionText.text('Shift+L: return to sequencer', 250, 300);
-      rotateX(-xRot);
-      translate(0,80,200);
-      texture(instructionText);
-      plane(1000, 800);
-      pop();
-    } else if (masterPage){
-    translate(currentZoom - 1500, 0, 2000);
-      if (masterPage2){
-        push();
-        instructionText.text('J: FX controls', 250, 300);
-        instructionText.text('K: scale mode', 250, 325);
-        translate(0,80,200);
-        texture(instructionText);
-        plane(1000, 800);
-        pop();
-      } else {
-        push();
-        instructionText.text('J: master controls', 250, 300);
-        instructionText.text('spacebar: return to sequencer', 250, 325);
-        translate(0,80,200);
-        texture(instructionText);
-        plane(1000, 800);
-        pop();
-      }
-    }else {
-      push();
-      instructionText.text('J: create ring', 250, 150);
-      instructionText.text('Shift+J: change ring speed', 250, 175);
-      instructionText.text('K: create trigger', 250, 200);
-      instructionText.text('Shift+K: remove trigger', 250, 225);
-      instructionText.text('L: select ring', 250, 250);
-      instructionText.text('Shift+L: view synth params', 250, 275);
-      instructionText.text('a d: change sequencers', 250, 300);
-      instructionText.text('w s: add/remove steps', 250, 325);
-      instructionText.text('spacebar: FX controls', 250, 350);
-      // instructionText.text('press Enter on any page to view instructions', 250, 500);
-      translate(0,80,200);
-      texture(instructionText);
-      plane(1000, 800);
-      pop();
-    }
-  }
-}
+// function keyPressed(){
+//   if (instructionsFirstTime){
+//     loop();
+//   }
+// }
+// //
+// function showInstructions() {
+//   textGraphic.fill(255);
+//   if (instructions) {
+//     if (instructionsFirstTime){
+//       noLoop();
+//     instructionText.background(0,0,0,0);
+//     instructionText.text('press Enter on any page to view instructions', 250, 500);
+//   } else {
+//     instructionText.background(0);
+//   }
+//       instructionText.fill(255);
+//     if (synthPage){
+//       push();
+//       instructionText.text('wasd: change sliders', 250, 200);
+//       instructionText.text('j: change oscillator', 250, 225);
+//       instructionText.text('K: change filter', 250, 250);
+//       instructionText.text('l: toggle chord mode', 250, 275);
+//       instructionText.text('Shift+L: return to sequencer', 250, 300);
+//       rotateX(-xRot);
+//       translate(0,80,200);
+//       texture(instructionText);
+//       plane(1000, 800);
+//       pop();
+//     } else if (masterPage){
+//     translate(currentZoom - 1500, 0, 2000);
+//       if (masterPage2){
+//         push();
+//         instructionText.text('J: FX controls', 250, 300);
+//         instructionText.text('K: scale mode', 250, 325);
+//         translate(0,80,200);
+//         texture(instructionText);
+//         plane(1000, 800);
+//         pop();
+//       } else {
+//         push();
+//         instructionText.text('J: master controls', 250, 300);
+//         instructionText.text('spacebar: return to sequencer', 250, 325);
+//         translate(0,80,200);
+//         texture(instructionText);
+//         plane(1000, 800);
+//         pop();
+//       }
+//     }else {
+//       push();
+//       instructionText.text('J: create ring', 250, 150);
+//       instructionText.text('Shift+J: change ring speed', 250, 175);
+//       instructionText.text('K: create trigger', 250, 200);
+//       instructionText.text('Shift+K: remove trigger', 250, 225);
+//       instructionText.text('L: select ring', 250, 250);
+//       instructionText.text('Shift+L: view synth params', 250, 275);
+//       instructionText.text('a d: change sequencers', 250, 300);
+//       instructionText.text('w s: add/remove steps', 250, 325);
+//       instructionText.text('spacebar: FX controls', 250, 350);
+//       // instructionText.text('press Enter on any page to view instructions', 250, 500);
+//       translate(0,80,200);
+//       texture(instructionText);
+//       plane(1000, 800);
+//       pop();
+//     }
+//   }
+// }
 
 function showText() {
   if (masterPage) {
@@ -179,5 +180,13 @@ function showText() {
     }
     pop();
   }
+
+  if (!startPage && !masterPage && !synthPage){
+  push();
+  translate(-340, -100, 0);
+  texture(textGraphic3);
+  plane(300, 400);
+  pop();
+}
   // unecessary comment
 }
